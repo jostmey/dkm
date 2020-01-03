@@ -12,8 +12,8 @@ under
 
 ## Rebuilding the Dataset
 
-The scripts to reconstruct the samples are provided. Because the last script randomly shuffles the samples, rebuilding
-the datasets from scratch will result in different splits of the data (i.e. the training, validation, and test sets will not
+The scripts to reconstruct the samples are provided. Because the last script randomly shuffles the samples, reconstructing
+the samples will result in different splits of the data (i.e. the training, validation, and test sets will not
 necessarily be the same). Open a Linux terminal and run:
 
 ```
