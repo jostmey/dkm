@@ -13,10 +13,10 @@ The results are... coming soon. Stay tuned!
 
 ## Requirements
 
- * [Python3](https://www.python.org/)
- * [TensorFlow == v1.14](https://www.tensorflow.org/)
- * [NumPy](http://www.numpy.org/)
- * [h5py](https://www.h5py.org/)
+* [Python3](https://www.python.org/)
+* [TensorFlow == v1.14](https://www.tensorflow.org/)
+* [NumPy](http://www.numpy.org/)
+* [h5py](https://www.h5py.org/)
 
 ## Download
 
