@@ -20,6 +20,10 @@ The results are... coming soon. Stay tuned!
 * [NumPy](http://www.numpy.org/)
 * [h5py](https://www.h5py.org/)
 
+## Recommended Tools
+
+* [HDF5 Database Viewer](https://www.hdfgroup.org/downloads/hdfview/)
+
 ## Download
 
 * Download: [zip](https://github.com/jostmey/dkm/zipball/master)
