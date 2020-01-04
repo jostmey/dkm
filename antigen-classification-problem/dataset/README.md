@@ -20,5 +20,5 @@ necessarily be the same). Open a Linux terminal and run:
 cd downloads
 cd ../
 sh download.sh
-python3 insert_10xgenomics.py
+python3 insert_10xgenomics.py > insert_10xgenomics.out
 ```
