@@ -11,11 +11,11 @@ We refer to these five values as Atchley numbers. The five Atchley numbers corre
 molecular volume, codon diversity, and electrostatic charge.
 
 The CSV files located in this folder contain the original Atchley factors. We normalize the Atchley factors to have unit variance and
-zero mean.
+zero mean. This can be recomputed by running:
 
 `python3 atchley_factors_normalized.py`
 
-We also consider using the square of each Atchlefy factor as additional features alongside the five value.
+We also consider using the square of each Atchlefy factor as additional features alongside the five value. This can be recomputed by running:
 
 `python3 atchley_factors_2nd,normalized.py`
 
