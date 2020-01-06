@@ -6,4 +6,4 @@ age and β-chain CDR3 sequences and copy numbers in peripheral blood provide fea
 classification dataset, receptors are not labelled by pMHC, but rather the T-cell repertoire is labelled by the patient’s CMV
 serostatus. 
 
-
+Samples have been built from this dataset and split into a training, validation, and test set. The samples are stored in a HDF5 file under database.h5. The file, which is over 5GB, is too large to store here. Click [here](https://www.dropbox.com/s/gzp8qy613qeiylx/database.h5?dl=0) to download the database file, which should be placed in this folder.
