@@ -7,11 +7,11 @@ Most statistical classifiers are designed to find patterns in data where numbers
 
 Computer science provides language for describing different ways non-conforming features can be structured. For example, biological data is often structured as a sequence of symbols. The essential property of a sequence is that both the content and order of symbols provide important information. Sets represent another way data can be structured. A set is like a sequence except the order of the symbols does not encode information. Identifying the underlying structure of the features is important because disparate sources of data with the same underlying structure can be handled with the same methods. For example, a social network is a graph of people and the way people are connected just like a molecule is a graph of atoms and the way those atoms are connected, allowing for the same statistical classifier to handle both cases.
 
-To understand different ways data can be structured, we consider two datasets of T-cell receptors, anticipating these datasets to contain signatures for diagnosing disease. To uncover meaningful patterns in each dataset, we present dynamic kernel matching (DKM) for modifying existing statistical classifiers with the computational machinery necessary to handle how the data is structured. Following this approach, statistical classifiers are fitted to each dataset.
+To understand different ways data can be structured, we consider two datasets of T-cell receptors, anticipating these datasets to contain signatures for diagnosing disease. The following two T-cell receptor datasets are examples of non-conforming data.
 
 ![alt text](artwork/data.png "Layout of data used in this study")
 
-The results are... coming soon. Stay tuned!
+In the antigen classification dataset, T-cell receptors are labelled by interaction with disease particle. Each T-cell contains a sequenced T-cell receptor, represented as categorial variables and sequences, that are used to predict the antigen, represented as a categorial variable. In the repertoire classification problem, a patient's sequence T-cell receptors are labelled by the patient's CMV status. Each row contains a patient’s age, represented as a numeric variable, and their T-cell receptors, represented as a set of sequences using sub-rows, that predict CMV serostatus, represented as a binary variable. In both datasets, best practices are implemented by splitting each dataset into a training, validation, and test set. Training data is used to fit a model, validation data is used for model selection, and test data is for reporting results (all results on test data must be reported!).
 
 ## Requirements
 
