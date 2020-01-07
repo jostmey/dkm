@@ -11,7 +11,10 @@ To understand different ways data can be structured, we consider two datasets of
 
 ![alt text](artwork/data.png "Layout of data used in this study")
 
-10XGenomics has published a dataset of T-cell receptors labelled by interaction with disease particle that we refer to as the antigen classification dataset [(link)](https://www.10xgenomics.com/resources/application-notes/a-new-way-of-exploring-immunity-linking-highly-multiplexed-antigen-recognition-to-immune-repertoire-and-phenotype/). Each T-cell contains a sequenced T-cell receptor, represented as categorial variables and sequences, that predict the antigen, represented as a categorial variable. Adaptive Biotechnologies has published a separate dataset of patients' sequenced T-cell receptors labelled by thoese patients' CMV status [(link)](https://clients.adaptivebiotech.com/pub/emerson-2017-natgen). Each row contains a patient’s age, represented as a numeric variable, and their T-cell receptors, represented as a set of sequences using sub-rows, that predict CMV serostatus, represented as a binary variable. In both datasets, best practices are implemented by splitting each dataset into a training, validation, and test set. Training data is used to fit a model, validation data is used for model selection, and test data is for reporting results (all results on test data must be reported!).
+10XGenomics has published a dataset of sequenced T-cell receptors labelled by interaction with disease particle, which are called antigens [(link)](https://www.10xgenomics.com/resources/application-notes/a-new-way-of-exploring-immunity-linking-highly-multiplexed-antigen-recognition-to-immune-repertoire-and-phenotype/). We refer to this as the antigen classification dataset.
+Adaptive Biotechnologies has published a separate dataset of patients' sequenced T-cell receptors, which are called immune repertoires, labelled by those patients' CMV status [(link)](https://clients.adaptivebiotech.com/pub/emerson-2017-natgen).
+We refer to this as the repertoire classification dataset.
+Training data is used to fit a model, validation data is used for model selection, and test data is for reporting results (all results on test data must be reported!).
 
 ## Requirements
 
