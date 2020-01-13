@@ -14,7 +14,7 @@ To understand different ways data can be structured, we consider two datasets of
 10XGenomics has published a dataset of sequenced T-cell receptors labelled by interaction with disease particle, which are called antigens [(link)](https://www.10xgenomics.com/resources/application-notes/a-new-way-of-exploring-immunity-linking-highly-multiplexed-antigen-recognition-to-immune-repertoire-and-phenotype/). We refer to this as the antigen classification dataset.
 Adaptive Biotechnologies has published a separate dataset of patients' sequenced T-cell receptors, which are called immune repertoires, labelled by those patients' CMV status [(link)](https://clients.adaptivebiotech.com/pub/emerson-2017-natgen).
 We refer to this as the repertoire classification dataset.
-Training data is used to fit a model, validation data is used for model selection, and test data is for reporting results (all results on test data must be reported!).
+Training data is used to fit a model, validation data is used for model selection, and test data is for reporting results. All results on test data must be reported.
 
 ## Requirements
 
