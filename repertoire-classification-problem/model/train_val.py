@@ -48,7 +48,7 @@ max_steps = 32
 
 # Load representation of the features
 #
-aminoacids_dict = load_aminoacid_embedding_dict('../lib/atchley_factors_normalized.csv')
+aminoacids_dict = load_aminoacid_embedding_dict('../../aminoacid-representation/atchley_factors_normalized.csv')
 
 # Load the samples
 #
@@ -172,7 +172,7 @@ initializer = tf.global_variables_initializer()
 
 # Settings
 #
-num_epochs = 1024
+num_epochs = 128
 cutoff = 131072
 
 # Open session
@@ -255,48 +255,6 @@ with tf.Session() as session:
       100.0*as_val[i_bestfit],
       sep='\t', flush=True
     )
-
-    # Periodically save results
-    #
-    if epoch%64 == 0:
-
-      # Save the predictions on training data
-      #
-      with open(args.output+'_ps_train_'+str(epoch)+'.csv', 'w') as stream:
-        print('Sample', 'Weight', 'Label', ','.join([ 'Prediction_'+str(i) for i in range(num_fits) ]), sep=',', file=stream)
-        for sample, y in ys_train.items():
-          ps = session.run(
-            probabilities_block,
-            feed_dict={
-              features_cdr3_block: xs_train[sample]['cdr3'][:cutoff],
-              features_quantity_block: xs_train[sample]['quantity'][:cutoff],
-              features_age_block: xs_train[sample]['age'],
-              weight_block: ws_train[sample],
-              level_block: num_levels
-            }
-          )
-          print(sample, ws_train[sample], y, ','.join([ str(ps[i]) for i in range(num_fits) ]), sep=',', file=stream)
-
-      # Save the predictions on validation data
-      #
-      with open(args.output+'_ps_val_'+str(epoch)+'.csv', 'w') as stream:
-        print('Sample', 'Weight', 'Label', ','.join([ 'Prediction_'+str(i) for i in range(num_fits) ]), sep=',', file=stream)
-        for sample, y in ys_val.items():
-          ps = session.run(
-            probabilities_block,
-            feed_dict={
-              features_cdr3_block: xs_val[sample]['cdr3'][:cutoff],
-              features_quantity_block: xs_val[sample]['quantity'][:cutoff],
-              features_age_block: xs_val[sample]['age'],
-              weight_block: ws_val[sample],
-              level_block: num_levels
-            }
-          )
-          print(sample, ws_val[sample], y, ','.join([ str(ps[i]) for i in range(num_fits) ]), sep=',', file=stream)
-
-      # Save the parameters
-      #
-      model.save_weights(args.output+'_'+str(epoch))
 
   # Save the predictions on training data
   #
