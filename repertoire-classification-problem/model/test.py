@@ -46,7 +46,7 @@ max_steps = 32
 
 # Load representation of the features
 #
-aminoacids_dict = load_aminoacid_embedding_dict('../lib/atchley_factors_normalized.csv')
+aminoacids_dict = load_aminoacid_embedding_dict('../../aminoacid-representation/atchley_factors_normalized.csv')
 
 # Load the samples
 #
