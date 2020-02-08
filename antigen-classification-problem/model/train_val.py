@@ -68,7 +68,7 @@ labels_val, weights_val = \
 # Settings
 #
 learning_rate = 0.001
-target_accuracy = 0.9
+target_accuracy = 0.95
 
 # Define the model
 #
