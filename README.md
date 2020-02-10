@@ -16,6 +16,8 @@ Adaptive Biotechnologies has published a separate dataset of patients' sequenced
 We refer to this as the repertoire classification dataset.
 Training data is used to fit a model, validation data is used for model selection, and test data is for reporting results. All results on test data must be reported.
 
+To uncover patterns in the non-conforming features in datasets such as these, we present *dynamic kernel matching* (DKM) as a way to augment existing statistical classifiers with computational machinery for handling non-conforming features. With DKM, the structure representing non-conforming features plays a pivotal role ensuring that appropriate features go into the appropriate inputs. To illustrate that DKM appropriately handles non-conforming features, we fit (i) a multinomial regression model augmented with DKM to a dataset of sequenced T-cell receptors labelled by disease antigen [(link)](https://github.com/jostmey/dkm/tree/master/antigen-classification-problem/model) and (ii) a logistic regression model augmented with DKM to a dataset of sequenced T-cell repertoires labelled by CMV serostatus [(link)](https://github.com/jostmey/dkm/tree/master/repertoire-classification-problem/model). The fit to training data achieved by these simple statistical classifiers demonstrate DKM can be used to uncover meaningful patterns in complex data.
+
 ## Requirements
 
 * [Python3](https://www.python.org/)
