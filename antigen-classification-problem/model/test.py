@@ -139,9 +139,9 @@ with tf.Session() as session:
   print(
     '%4.3f'%(c_test/np.log(2.0)),
     '%4.3f'%(100.0*a_test),
-    '%4.3f'%(c_t_test/np.log(2.0)),
-    '%4.3f'%(100.0*a_t_test),
-    '%4.3f'%(100.0*f_t_test),
+#    '%4.3f'%(c_t_test/np.log(2.0)),
+#    '%4.3f'%(100.0*a_t_test),
+#    '%4.3f'%(100.0*f_t_test),
     sep='\t', flush=True
   )
 
