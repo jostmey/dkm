@@ -180,14 +180,14 @@ with tf.Session() as session:
       i_step,
       '%4.3f'%(c_train/np.log(2.0)),
       '%4.3f'%(100.0*a_train),
-      '%4.3f'%(c_t_train/np.log(2.0)),
-      '%4.3f'%(100.0*a_t_train),
-      '%4.3f'%(100.0*f_t_train),
+#      '%4.3f'%(c_t_train/np.log(2.0)),
+#      '%4.3f'%(100.0*a_t_train),
+#      '%4.3f'%(100.0*f_t_train),
       '%4.3f'%(c_val/np.log(2.0)),
       '%4.3f'%(100.0*a_val),
-      '%4.3f'%(c_t_val/np.log(2.0)),
-      '%4.3f'%(100.0*a_t_val),
-      '%4.3f'%(100.0*f_t_val),
+#      '%4.3f'%(c_t_val/np.log(2.0)),
+#      '%4.3f'%(100.0*a_t_val),
+#      '%4.3f'%(100.0*f_t_val),
       sep='\t', flush=True
     )
 
