@@ -13,12 +13,12 @@ mkdir bin
 python3 train_val.py --database ../dataset/database.h5 --table_train Receptor-PMHC-Complex/train --table_val Receptor-PMHC-Complex/validate --tags A0201_GILGFVFTL_Flu-MP_Influenza_binder A0301_KLGGALQAK_IE-1_CMV_binder A0301_RLRAEAQVK_EMNA-3A_EBV_binder A1101_IVTDFSVIK_EBNA-3B_EBV_binder A1101_AVFDRKSDAK_EBNA-3B_EBV_binder B0801_RAKFKQLL_BZLF1_EBV_binder --output bin/model
 ```
 
-As the script runs, columns of numbers will be printed in the terminal. The columns represent:
-1. The gradient optimization step
-2. The cross-entropy loss over the training cohort
-3. The accuracy over the training cohort, picking the correct of six outcomes
-4. The cross-entropy loss over the validation cohort
-5. The accuracy over the validation cohort, picking the correct of six outcomes
+As the script runs, columns of numbers will be printed in the terminal. The five columns of numbers report:
+1. The gradient optimization step,
+2. the cross-entropy loss over the training cohort,
+3. the accuracy over the training cohort (picking the correct of six outcomes)
+4. the cross-entropy loss over the validation cohort,
+5. and the accuracy over the validation cohort, picking the correct of six outcomes.
 
 After fitting the model, we can evaluate its performance on the test cohort.
 
