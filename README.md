@@ -3,7 +3,7 @@
 
 ## Introduction
 
-Statistical classifiers are mathematical models that use example data to find patterns in features that predict a label. Most statistical classifiers assume the features are arranged into rows and columns, like a spreadsheet, but many kinds of data do not conform to this structure. Sequences are one example of a different kind of data, which is why this data is best stored in a text document, not a spreadsheet. To uncover patterns in sequences and other nonconforming features, we have developed a new approach to augment established statistical classifiers with the computational machinery necessary to handle non-conforming features, using what we call *dynamic kernel matching* (DKM).
+Statistical classifiers are mathematical models that use example data to find patterns in features that predict a label. Most statistical classifiers assume the features are arranged into rows and columns, like a spreadsheet, but many kinds of data do not conform to this structure. Sequences are one example of a different kind of data, which is why this data is best stored in a text document, not a spreadsheet. To uncover patterns in sequences and other nonconforming features, we have developed a new approach for classifying non-conforming data using what we call *dynamic kernel matching* (DKM).
 
 ~~To identify the computaitonal machinery required to handle non-conforming features, the first step is to identify how the features are represented. For example, biological data is often represented as a sequence of symbols. The essential property of a sequence is that both the content and order of symbols provide important information. Sets represent another way data can be structured. A set is like a sequence except the order of the symbols does not encode information. Sometimes non-conforming features are a composite of structures. For example, a patient's immune repertoire is represented a set of sequences. After identifying the structure of how the features are represented, we can implement DKM.~~
 
@@ -13,11 +13,10 @@ To illustrate the problems we can handle with DKM, we consider two datasets of T
 
 ![alt text](artwork/data.png "Layout of data used in this study")
 
-10x Genomics has published a dataset of sequenced T-cell receptors labelled by interaction with disease particles, which are called antigens [(link)](https://www.10xgenomics.com/resources/application-notes/a-new-way-of-exploring-immunity-linking-highly-multiplexed-antigen-recognition-to-immune-repertoire-and-phenotype/). We refer to this as the antigen classification dataset. See the folder `antigen-classification-problem` for instructions to setup the dataset and fit a multinomial regression model augmented with DKM to solve the antigen classification problem.
+10x Genomics has published a dataset of sequenced T-cell receptor sequences labelled by interaction with disease particles, which are called antigens [(link)](https://www.10xgenomics.com/resources/application-notes/a-new-way-of-exploring-immunity-linking-highly-multiplexed-antigen-recognition-to-immune-repertoire-and-phenotype/). We refer to this as the antigen classification problem. To solve the antigen classification problem, we use DKM to classify the sequences. See the folder `antigen-classification-problem` details.
 
 Adaptive Biotechnologies has published a separate dataset of patients' sequenced T-cell receptors, which are called immune repertoires, labelled by those patients' CMV status [(link)](https://clients.adaptivebiotech.com/pub/emerson-2017-natgen).
-We refer to this as the repertoire classification dataset.
-Training data is used to fit a model, validation data is used for model selection, and test data is for reporting results. All results on test data must be reported. See the folder `repertoire-classification-problem` for instructions to setup the dataset and fit a logistic regression model augmented with DKM to solve the repertoire classification problem.
+We refer to this as the repertoire classification problem. To solve the repertoire classification problem, we use DKM to classify the set of sequences. See the folder `repertoire-classification-problem` for details.
 
 Training data is used to fit a model, validation data is used for model selection, and test data is for reporting results. We strictly adhered to this protocol, ensuring that we avoid a model selection bias during this study.
 
