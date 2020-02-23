@@ -9,9 +9,6 @@
 # Libraries
 ##########################################################################################
 
-import os
-os.environ['CUDA_VISIBLE_DEVICES'] = '2'
-
 import argparse
 from dataset import *
 from model import *
