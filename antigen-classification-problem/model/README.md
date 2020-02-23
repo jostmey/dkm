@@ -1,10 +1,10 @@
 ## Antigen Classification Problem
 
-To illustrate *dynamic kernel matching* (DKM) can be used to classify sequences, we modify a multinomial regression model with DKM and fit it to the antigen classification dataset [(link)](https://github.com/jostmey/dkm/tree/master/antigen-classification-problem/dataset). To preform DKM on a sequence, we use a sequence alignment algorithm implemented in TensorFlow. See `alignment_score.py` for an implementation of the [Needleman-Wunsch algorithm](https://en.wikipedia.org/wiki/Needleman–Wunsch_algorithm). A Keras wrapper is provided in `Alignment.py`.
+To illustrate *dynamic kernel matching* (DKM) can be used to classify sequences, we modify a multinomial regression model with DKM and fit it to the antigen classification dataset [(link)](https://github.com/jostmey/dkm/tree/master/antigen-classification-problem/dataset). To preform DKM on a sequence, we implement a sequence alignment algorithm in TensorFlow. See `alignment_score.py` for our implementation of the [Needleman-Wunsch algorithm](https://en.wikipedia.org/wiki/Needleman–Wunsch_algorithm) in TensorFlow. A Keras wrapper is provided in `Alignment.py`.
 
 ## Running the model
 
-The scripts below fits a DKM augmented multinomial regression model to the antigen classification dataset. The scripts can take upwards of 15 minutes initializing the model before the gradient optimization based fitting procedure begins.
+The script below fits a DKM augmented multinomial regression model to the antigen classification dataset. The initialization of the model can take 15 minutes or more before the gradient optimization begins.
 
 ```
 mkdir bin
@@ -21,7 +21,7 @@ As the script runs, columns of numbers will be printed on the screen. The five c
 After fitting the model, we can evaluate its performance on the test cohort.
 
 ```
-python3 test.py BLAH BLAH
+python3 test.py -database ../dataset/database.h5 --table Receptor-PMHC-Complex/test --tags A0201_GILGFVFTL_Flu-MP_Influenza_binder A0301_KLGGALQAK_IE-1_CMV_binder A0301_RLRAEAQVK_EMNA-3A_EBV_binder A1101_IVTDFSVIK_EBNA-3B_EBV_binder A1101_AVFDRKSDAK_EBNA-3B_EBV_binder B0801_RAKFKQLL_BZLF1_EBV_binder --cutoff 0.783349 --input bin/model --output bin/model
 ```
 
 As a control, we can permute the features with respect to the labels and fit the model, removing the relationship between the features and the labels. The fit to the training cohort represents the statistical classifiers ability to memorize the labels. There should be no ability to generalize to the validation cohort.
