@@ -1,5 +1,7 @@
 ## Antigen Classification Problem
 
+To predict T-cell receptor interaction with disease antigens, we need an approach that can classify sequences, which are one kind of non-conforming data. We present *dynamic kernel matching* (DKM) as an approach to modify established statistical classifiers with the computational machinery necessary to handle non-conforming features.
+
 ## Running the model
 
 ```
