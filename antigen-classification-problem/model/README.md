@@ -24,6 +24,8 @@ After fitting the model, we can evaluate its performance on the test cohort.
 python3 test.py -database ../dataset/database.h5 --table Receptor-PMHC-Complex/test --tags A0201_GILGFVFTL_Flu-MP_Influenza_binder A0301_KLGGALQAK_IE-1_CMV_binder A0301_RLRAEAQVK_EMNA-3A_EBV_binder A1101_IVTDFSVIK_EBNA-3B_EBV_binder A1101_AVFDRKSDAK_EBNA-3B_EBV_binder B0801_RAKFKQLL_BZLF1_EBV_binder --cutoff 0.783349 --input bin/model --output bin/model
 ```
 
+On the test samples, we achieved a classification accuracy of 70.5%. Given the six possible outcomes, the baseline accuracy achievable by chance is 1/6, or equivalent to tossing a six-sided die.
+
 As a control, we can permute the features with respect to the labels and fit the model, removing the relationship between the features and the labels. The fit to the training cohort represents the statistical classifiers ability to memorize the labels. There should be no ability to generalize to the validation cohort.
 
 ```
