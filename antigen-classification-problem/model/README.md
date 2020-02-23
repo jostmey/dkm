@@ -13,10 +13,10 @@ python3 train_val.py --database ../dataset/database.h5 --table_train Receptor-PM
 
 As the script runs, columns of numbers will be printed on the screen. The five columns of numbers report:
 1. The gradient optimization step,
-2. the cross-entropy loss over the training cohort,
-3. the accuracy over the training cohort (picking the correct of six outcomes)
-4. the cross-entropy loss over the validation cohort,
-5. and the accuracy over the validation cohort, picking the correct of six outcomes.
+2. the cross-entropy loss over the training data,
+3. the classification accuracy over the training data,
+4. the cross-entropy loss over the validation data,
+5. and classification the accuracy over the validation data.
 
 After fitting the model, we can evaluate its performance on the test cohort.
 
@@ -24,7 +24,7 @@ After fitting the model, we can evaluate its performance on the test cohort.
 python3 test.py -database ../dataset/database.h5 --table Receptor-PMHC-Complex/test --tags A0201_GILGFVFTL_Flu-MP_Influenza_binder A0301_KLGGALQAK_IE-1_CMV_binder A0301_RLRAEAQVK_EMNA-3A_EBV_binder A1101_IVTDFSVIK_EBNA-3B_EBV_binder A1101_AVFDRKSDAK_EBNA-3B_EBV_binder B0801_RAKFKQLL_BZLF1_EBV_binder --cutoff 0.783349 --input bin/model --output bin/model
 ```
 
-On the test samples, we achieved a classification accuracy of 70.5%. Given the six possible outcomes, the baseline accuracy achievable by chance is 1/6, or equivalent to tossing a six-sided die.
+The two columns of numbers report: 1. The cross-entropy loss over the test data, and 2. the classification accuracy over the test data. On the test data, we achieved a classification accuracy of 70.5%. Given the six possible outcomes, the baseline accuracy achievable by chance is 1/6, or equivalent to tossing a six-sided die.
 
 As a control, we can permute the features with respect to the labels and fit the model, removing the relationship between the features and the labels. The fit to the training cohort represents the statistical classifiers ability to memorize the labels. There should be no ability to generalize to the validation cohort.
 
