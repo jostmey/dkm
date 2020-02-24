@@ -68,6 +68,10 @@ We provide a script to find `H_cutoff`. Suppose the best fitting run is 1 and th
 python3 cutoff_finder.py --predictions_val bin/model_1_ps_val.csv --index 14 --output cutoff_finder_results.csv
 ```
 
-Examine the spreadsheet and find the value for `H_cutoff` associated with at least a 95% classification accuracy on the validation cohort. This is our cutoff. We are ready to capture samples from the test cohort.
+Examine `cutoff_finder_results.csv` and find the value for `H_cutoff` associated with at least a 95% classification accuracy on the validation cohort. This is our cutoff. We are ready to capture samples from the test cohort. Suppose `H_cutoff` is 0.527.
 
+```
+python3 cutoff_test.py --predictions_test bin/model_1_ps_test.csv --cutoff 0.527 --index 14 --output cutoff_test_results.csv
+```
 
+Examine `cutoff_test_results.csv` for the results. We achieve a classification accuracy of 96% capturing 18% of samples. Samples from the test cohort are captured almost evenly across the two categories, CMV+ and CMV-.
