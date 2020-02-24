@@ -30,4 +30,4 @@ The script reports the cross-entropy loss and the classification accuracy over t
 
 ## Confidence Cutoffs
 
-Results to be added
+See the README for the repertoire classification model [(link)](../../repertoire-classification-problem/model/README.md#confidence-cutoffs)
