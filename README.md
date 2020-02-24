@@ -13,11 +13,11 @@ To illustrate the types of non-conforming features that we can handle with DKM, 
 ![alt text](artwork/data.png "Layout of data used in this study")
 
 ###### Antigen Classification Problem
-10x Genomics has published a dataset of sequenced T-cell receptors labelled by interaction with disease particles, which are called antigens [(link)](https://www.10xgenomics.com/resources/application-notes/a-new-way-of-exploring-immunity-linking-highly-multiplexed-antigen-recognition-to-immune-repertoire-and-phenotype/). We refer to this as the antigen classification problem. To solve the antigen classification problem, we use DKM to classify each sequence in this dataset. See the folder `antigen-classification-problem` details.
+10x Genomics has published a dataset of sequenced T-cell receptors labelled by interaction with disease particles, which are called antigens [(link)](https://www.10xgenomics.com/resources/application-notes/a-new-way-of-exploring-immunity-linking-highly-multiplexed-antigen-recognition-to-immune-repertoire-and-phenotype/). We refer to this as the antigen classification problem. To solve the antigen classification problem, we use DKM to classify each sequence in this dataset. See the folder `antigen-classification-problem` details [(link)](antigen-classification-problem/model).
 
 ###### Repertoire Classification Problem
 Adaptive Biotechnologies has published a separate dataset of patients' sequenced T-cell receptors, which are called immune repertoires, labelled by those patients' cytomegalovirus (CMV) serostatus [(link)](https://clients.adaptivebiotech.com/pub/emerson-2017-natgen).
-We refer to this as the repertoire classification problem. To solve the repertoire classification problem, we use DKM to classify each set of sequences in this dataset. See the folder `repertoire-classification-problem` for details.
+We refer to this as the repertoire classification problem. To solve the repertoire classification problem, we use DKM to classify each set of sequences in this dataset. See the folder `repertoire-classification-problem` for details [(link)](repertoire-classification-problem/model).
 
 ###### Study Design
 Training data is used to fit a model, validation data is used for model selection, and test data is used for reporting results. We strictly adhered to this protocol, ensuring that we avoid a model selection bias when reporting results.
