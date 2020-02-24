@@ -6,14 +6,20 @@ To illustrate *dynamic kernel matching* (DKM) can be used to classify sets of se
 
 ## Model fitting
 
-Each sequenced immune repertoire contains an average of over 100,000 receptors with almost 10,000,000 features per sample. Consequently, only one or a few immune repertoires can be fit into GPU memory at any given time. To fit the model to the training data, we rely on gradient aggreation. With gradient aggregation, each sample is feed into the model and gradients with respect to the cross-entropy loss function are computed. The samples are feed through the model one at time in a serial fashion. Afterwards, the gradients with respect to each sample are averaged together, achieving the same computation as if the gradient was computed with respect to the cross-entropy loss function over the samples.
+Two special aspects for fitting the model are (i) gradient aggregation and (ii) many local minima.
 
-We take the best fit to the training data out of many attempts to fit the training data.
+###### Gradient Aggregation
+Each sequenced immune repertoire contains an average of over 100,000 receptors with almost 10,000,000 features per sample. Consequently, only one or a few immune repertoires can be fit into GPU memory at any given time. To fit the model to the training data, we rely on gradient aggregation, which is where the gradients with respect to the cross-entropy loss function are computed one sample at a time in a serial fashion. Afterwards, the gradients are added together and the weights are updated. Gradient aggregation achieves the same computation as if the gradients are computed with respect to the cross-entropy loss over all the samples simultaneously, as is commonly done.
+
+
+###### Many Local Minima
+After running 128 steps of gradient optimization, we observe the fit strongly depends on initial weights. If we refit the model using different values for the initial values for the weights then we get a substantially different result. This indicates the cross-entropy landscape contains many local minima. To attempt to find a global best fit to the training data, we refit the model 128 times, each time starting from different initial values for the weights. We use the weights from the best fit, as measure over the training cohort (the validation cohort have not been used yet).
 
 ![alt text](../../artwork/many-fits.png "Best fit to training data")
 
-
 ## Running the model(s)
+
+Running the script `train_val.py` fits 16 copies of the model to the training cohort. We run the script 8 times, resulting in a total of 128 copies of the model. We find the best fit to the training cohort out of all 128 copies. The initialization of the model can take 15 minutes or more before the gradient optimization begins. The script assumes the GPU has the same memory as a P100 16GB GPU.
 
 ```
 mkdir bin
