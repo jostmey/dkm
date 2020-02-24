@@ -54,12 +54,20 @@ Once the best fitting copy has been identified, we can evalue the model on the t
 python3 test.py --gpu 0 --database ../dataset/database.h5 --cohort_test Cohort_II --split_test samples --input bin/model_1 --index 14 --output bin/model_1
 ```
 
-The script reports the cross-entropy loss and the classification accuracy over the test cohort. We achieved a classification accuracy of 67.6%. Given that we balance over the two possible outcomes, the baseline accuracy achievable by chance is 1/2, or equivalent to tossing a coin. While these results are poor, we planned to use confidence cutoffs from the onset of this study, allowing us to achieve significantly better results with a caveat.
+The script reports the cross-entropy loss and the classification accuracy over the test cohort. We achieved a classification accuracy of 67.6%. Given that we balance over the two possible outcomes, the baseline accuracy achievable by chance is 1/2, or equivalent to tossing a coin. While these results are poor, we planned to use confidence cutoffs from the onset of this study, allowing us to achieve significantly better results with a caveat. See the next section.
 
 ## Confidence Cutoffs
 
 To provide predictions relevant to clinical decision making, we use a simple approach for capturing only those samples classified with high confidence, separating these samples from indeterminate cases that require additional observation and diagnostic testing. By providing an indeterminate diagnosis on uncertain cases, only the patients that can be diagnosed with a high degree of confidence receive a diagnosis, resulting in a higher classification accuracy. When conducting a blindfolded study, the labels for uncaptured samples must remain blindfolded. The classification accuracy is calculated only from the unblindfolded samples captured by the cutoffs.
 
 To begin, we run every sample through the statistical classifier to generate a prediction. Each prediction represents a probability distribution over outcomes, allowing us to calculate the entropy associated with each prediction. Let `H_j` represent the entropy from the prediction for sample j. We define `H_cutoff` as the cutoff for capturing samples. If `H_j ≤ H_cutoff` the sample is captured because the confidence is high. Otherwise, the sample is not captured by the cutoff because the confidence is low. We start with a value for `H_cutoff` large enough to ensure all the samples are initially captured and decrease `H_cutoff` in increments of 0.01 until we find that the accuracy over captured samples is ≥95% on a validation cohort. We then apply the cutoff to capture samples on the blindfolded test cohort and compute the accuracy.
+
+We provide a script to find `H_cutoff`. Suppose the best fitting run is 1 and the best fitting copy on that run is 14.
+
+```
+python3 cutoff_finder.py --predictions_val bin/model_1_ps_val.csv --index 14 --output cutoff_finder_results.csv
+```
+
+Examine the spreadsheet and find the value for `H_cutoff` associated with at least a 95% classification accuracy on the validation cohort. This is our cutoff.
 
 
