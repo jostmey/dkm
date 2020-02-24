@@ -54,6 +54,12 @@ Once the best fitting copy has been identified, we can evalue the model on the t
 python3 test.py --gpu 0 --database ../dataset/database.h5 --cohort_test Cohort_II --split_test samples --input bin/model_1 --index 14 --output bin/model_1
 ```
 
+The script reports the cross-entropy loss and the classification accuracy over the test cohort. We achieved a classification accuracy of 67.6%. Given that we balance over the two possible outcomes, the baseline accuracy achievable by chance is 1/2, or equivalent to tossing a coin. While these results are poor, we planned to use confidence cutoffs from the onset of this study, allowing us to achieve significantly better results with a caveat.
+
 ## Confidence Cutoffs
 
-Results to be added
+To provide predictions relevant to clinical decision making, we use a simple approach for capturing only those samples classified with high confidence, separating these samples from indeterminate cases that require additional observation and diagnostic testing. By providing an indeterminate diagnosis on uncertain cases, only the patients that can be diagnosed with a high degree of confidence receive a diagnosis, resulting in a higher classification accuracy. The classification accuracy is calculated only from the unblindfolded samples captured by the cutoffs.
+
+
+
+
