@@ -19,7 +19,7 @@ To illustrate the types of non-conforming features that we can handle with DKM, 
 Adaptive Biotechnologies has published a separate dataset of patients' sequenced T-cell receptors, which are called immune repertoires, labelled by those patients' cytomegalovirus (CMV) serostatus. We refer to this as the repertoire classification problem. To solve the repertoire classification problem, we use DKM to classify each set of sequences in this dataset. See the folder `repertoire-classification-problem` for details [(link)](repertoire-classification-problem/model).
 
 ###### Study Design
-Training data is used to fit a model, validation data is used for model selection, and test data is used for reporting results. We strictly adhered to this protocol, ensuring that we avoid a model selection bias when reporting results.
+Training cohort is used to fit a model, validation cohort is used for model selection, and test cohort is used for reporting results. We strictly adhered to this protocol, ensuring that we avoid a model selection bias when reporting results.
 
 ## Requirements
 
