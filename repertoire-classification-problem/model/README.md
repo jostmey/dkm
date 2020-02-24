@@ -4,7 +4,7 @@ To demonstrate that *dynamic kernel matching* (DKM) can be used to classify sets
 
 ![alt text](../../artwork/repertoire-classification-model.png "Repertoire classification model")
 
-## Model fitting
+## Fitting Procedure
 
 Two special aspects for fitting the model are (i) gradient aggregation and (ii) many local minima.
 
