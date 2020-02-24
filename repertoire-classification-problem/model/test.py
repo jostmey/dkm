@@ -201,8 +201,8 @@ with tf.Session() as session:
   # Print report
   #
   print(
-    np.mean(cs_test)/np.log(2.0),
-    100.0*np.mean(as_test),
+#    np.mean(cs_test)/np.log(2.0),
+#    100.0*np.mean(as_test),
     cs_test[args.index]/np.log(2.0),
     100.0*as_test[args.index],
     sep='\t', flush=True
