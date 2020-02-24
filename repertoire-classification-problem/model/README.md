@@ -74,4 +74,4 @@ Examine `cutoff_finder_results.csv` and find the value for `H_cutoff` associated
 python3 cutoff_test.py --predictions_test bin/model_1_ps_test.csv --cutoff 0.527 --index 14 --output cutoff_test_results.csv
 ```
 
-Examine `cutoff_test_results.csv` for the results. We achieve a classification accuracy of 96% capturing 18% of samples. Samples from the test cohort are captured almost evenly across the two categories, CMV+ and CMV-.
+Examine `cutoff_test_results.csv` for the results. **We achieve a classification accuracy of 96% capturing 18% of samples.** Samples from the test cohort are captured almost evenly across the two categories, CMV+ and CMV-.
