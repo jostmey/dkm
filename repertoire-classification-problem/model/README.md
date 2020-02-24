@@ -27,4 +27,8 @@ python3 train_val.py --gpu 6 --database ../dataset/database.h5 --cohort_train Co
 python3 train_val.py --gpu 7 --database ../dataset/database.h5 --cohort_train Cohort_I --split_train samples_train --cohort_val Cohort_I --split_val samples_validate --output bin/model_8 > bin/train_val_8.out
 ```
 
+Results to be added
 
+## Confidence Cutoffs
+
+Results to be added
