@@ -24,7 +24,7 @@ num_fits = 128
 
 bestfits = {}
 for fit in range(1, num_fits+1):
-  path = '../bin/train_val_'+str(fit)+'.out'
+  path = 'bin/train_val_'+str(fit)+'.out'
   if os.path.isfile(path):
     with open(path, 'r') as stream:
       reader = csv.reader(stream, delimiter='\t')
