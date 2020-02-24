@@ -27,3 +27,7 @@ python3 test.py -database ../dataset/database.h5 --table Receptor-PMHC-Complex/t
 ```
 
 The script reports the cross-entropy loss and the classification accuracy over the test data. We achieved a classification accuracy of 70.5%. Given the six possible outcomes, the baseline accuracy achievable by chance is 1/6, or equivalent to tossing a six-sided die.
+
+## Confidence Cutoffs
+
+Results to be added
