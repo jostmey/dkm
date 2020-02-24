@@ -1,3 +1,9 @@
+##########################################################################################
+# Author: Jared L. Ostmeyer
+# Date Started: 2018-12-31 (the date when I had the idea)
+# Purpose: Test model classifier for T-cell receptor sequences
+##########################################################################################
+
 import tensorflow as tf
 
 def alignment_score(features, masks, weights, penalties_feature=0.0, penalties_weight=0.0):
