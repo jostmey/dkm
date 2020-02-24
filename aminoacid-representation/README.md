@@ -1,6 +1,6 @@
 ## Amino Acid Representation
 
-Rather than representing each amino acid residue by its symbol (as a one-hot encoding), each amino acid residue is represented by a
+Rather than represent each amino acid residue by its symbol (as a one-hot encoding), each amino acid residue is represented by a
 vector of numbers describing its biochemical properties. The biochemical properties provide information necessary to determine, for
 example, that amino acid residues R and K have positively charged sidechains interchangeable with respect to this common property.
 There are many biochemical properties, most of which carry redundant information. For example, the mass of an amino acid residue
@@ -15,7 +15,7 @@ zero mean. This can be recomputed by running:
 
 `python3 atchley_factors_normalized.py`
 
-We also consider using the square of each Atchlefy factor as additional features alongside the five value. This can be recomputed by running:
+We also consider using the square of each Atchley factor as additional features alongside the five Atchley factor values. This can be recomputed by running:
 
 `python3 atchley_factors_2nd,normalized.py`
 
