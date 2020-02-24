@@ -19,7 +19,7 @@ After running 128 steps of gradient optimization, we observe the fit strongly de
 
 ## Running the model(s)
 
-Running the script `train_val.py` fits 16 copies of the model to the training cohort. We run the script 8 times, resulting in a total of 128 copies of the model. We find the best fit to the training cohort out of all 128 copies. The initialization of the model can take 15 minutes or more before the gradient optimization begins. The script assumes the GPU has the same memory as a P100 16GB GPU.
+Running the script `train_val.py` fits 16 copies of the model to the training cohort. We run the script 8 times, resulting in a total of 128 copies of the model. We find the best fit to the training cohort out of all 128 copies. The initialization of the model can take 15 minutes or more before the gradient optimization begins. The script assumes an array of 8 GPUs with the same memory as a P100 16GB GPU.
 
 ```
 mkdir bin
@@ -33,7 +33,26 @@ python3 train_val.py --gpu 6 --database ../dataset/database.h5 --cohort_train Co
 python3 train_val.py --gpu 7 --database ../dataset/database.h5 --cohort_train Cohort_I --split_train samples_train --cohort_val Cohort_I --split_val samples_validate --output bin/model_8 > bin/train_val_8.out
 ```
 
-Results to be added
+A seperate script identifies the copy that best fits the training cohort, which also reports how that copy does on the validation cohort.
+
+```
+python3 find_bestfit.py
+```
+
+The seven columns of numbers report:
+1. The gradient optimization step,
+2. run with best fitting copy (1 to 8),
+3. index of the best fitting copy on sed run (0 to 15),
+4. the cross-entropy loss over the training cohort for the best fitting copy,
+5. the classification accuracy over training cohort for sed copy,
+6. the cross-entropy loss over the validation cohort for sed copy,
+7. and the classification accuracy over validation cohort for sed copy,
+
+Once the best fitting copy has been identified, we can evalue the model on the test cohort. Suppose the best fitting run is 1 and the best fitting copy on that run is 14.
+
+```
+python3 test.py --gpu 0 --database ../dataset/database.h5 --cohort_test Cohort_II --split_test samples --input bin/model_1 --index 14 --output bin/model_1
+```
 
 ## Confidence Cutoffs
 
