@@ -18,7 +18,7 @@ As the script runs, columns of numbers will be printed on the screen. The five c
 2. the cross-entropy loss over the training cohort,
 3. the classification accuracy over the training cohort,
 4. the cross-entropy loss over the validation cohort,
-5. and classification the accuracy over the validation cohort.
+5. and the accuracy classification over the validation cohort.
 
 After fitting the model, we can evaluate its performance on the test cohort.
 
