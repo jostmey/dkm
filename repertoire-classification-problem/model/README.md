@@ -17,6 +17,8 @@ After running 128 steps of gradient optimization, we observe that the fit strong
 
 ![alt text](../../artwork/many-fits.png "Best fit to training data")
 
+*We anticipate that by taking the best fit from a significantly larger number of copies, like 1024 copies, than better classification results can be obtained.*
+
 ## Running the model(s)
 
 Running `train_val.py` simultaneously fits 16 copies of the model to the training cohort. We run the script 8 times, resulting in a total of 128 copies of the model. We find the best fit to the training cohort out of all 128 copies. The initialization of the model can take 15 minutes or more before gradient optimization begins. Our setup assumes an array of 8 GPUs with the same memory as a P100 16GB GPU.
