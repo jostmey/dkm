@@ -9,7 +9,7 @@ from tensorflow.keras.initializers import *
 import tensorflow.keras.backend as K
 import tensorflow as tf
 
-class WeightedInitNormalization(Layer):
+class NormalizeInitialization(Layer):  # Scale at initialization to zero mean and unit variance
   def __init__(self, epsilon=1.0E-5, **kwargs):
     self.epsilon = epsilon
     super(__class__, self).__init__(**kwargs)
