@@ -39,21 +39,21 @@ class NormalizeInitialization(Layer):  # Scale at initialization to zero mean an
   def call(self, inputs):
     inputs, weights = inputs
 
-    weights = weights/tf.reduce_sum(weights)
+    weights = weights/tf.reduce_sum(weights)  # Normalize sample weights
     weights_expand = tf.expand_dims(weights, axis=1)
 
-    mean, variance = tf.nn.weighted_moments(inputs, [0], weights_expand)
+    mean, variance = tf.nn.weighted_moments(inputs, [0], weights_expand)  # Compute weighed mean and variance
 
-    counter = K.update_add(self.counter, K.ones_like(self.counter))
-    init = K.sign(counter-K.ones_like(counter))
+    counter = K.update_add(self.counter, K.ones_like(self.counter))  # Count number of times the data passes through the model
+    init = K.sign(counter-K.ones_like(counter))  # Indicator is 1 if model is being initalized, 0 otherwise
 
-    mean = K.update(self.mean, init*self.mean+(1.0-init)*mean)
-    variance = K.update(self.variance, init*self.variance+(1.0-init)*variance)
+    mean = K.update(self.mean, init*self.mean+(1.0-init)*mean)  # Store the mean when the indicator is 1
+    variance = K.update(self.variance, init*self.variance+(1.0-init)*variance)  # Store the mean when the indicator is 1
 
     mean_expand = tf.expand_dims(mean, axis=0)
     variance_expand = tf.expand_dims(variance, axis=0)
 
-    outputs = (inputs-mean_expand)/tf.sqrt(variance_expand+self.epsilon)
+    outputs = (inputs-mean_expand)/tf.sqrt(variance_expand+self.epsilon)  # Normalize the inputs
 
     return outputs
 
