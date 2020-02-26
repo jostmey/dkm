@@ -17,7 +17,7 @@ After running 128 steps of gradient optimization, we observe that the fit strong
 
 ![alt text](../../artwork/many-fits.png "Best fit to training data")
 
-*We anticipate that by taking the best fit from a significantly larger number of copies, like 1024 copies, than better classification results can be obtained.*
+*We anticipate that by taking the best fit from a significantly larger number of copies, like 1024 copies, that better classification results can be obtained.*
 
 ## Running the model(s)
 
