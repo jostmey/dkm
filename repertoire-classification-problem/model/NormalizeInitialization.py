@@ -9,7 +9,7 @@ from tensorflow.keras.initializers import *
 import tensorflow.keras.backend as K
 import tensorflow as tf
 
-class NormalizeInitializationByAggregation(Layer):
+class NormalizeInitializationByAggregation(Layer):   # Scale at initialization to zero mean and unit variance, assuming we can only fit one immune repetoire a time on the GPU
   def __init__(self, level, epsilon=1.0E-5, **kwargs):
     self.level = level
     self.epsilon = epsilon
