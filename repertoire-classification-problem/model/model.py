@@ -10,7 +10,7 @@ from Length import *
 from BatchExpand import *
 from Abundance import *
 from Alignment import *
-from WeightedInitNormalization import *
+from NormalizeInitialization import *
 from Aggregate import *
 from FullFlatten import *
 
@@ -29,25 +29,25 @@ def generate_model(input_shape_cdr3, num_outputs):
   weights_instance = Multiply()([weight, features_quantity])
 
   logits_cdr3 = Alignment(num_outputs, input_shape_cdr3[0], penalties_feature=0.0, penalties_filter=-1.0E16, length_normalize=False)(features_mask)
-  logits_cdr3_norm = WeightedInitNormalization(1, epsilon=1.0E-5)([ logits_cdr3, weights_instance, level ])
+  logits_cdr3_norm = NormalizeInitializationByAggregation(1, epsilon=1.0E-5)([ logits_cdr3, weights_instance, level ])
 
-  feature_length_norm = WeightedInitNormalization(0, epsilon=1.0E-5)([ features_length, weights_instance, level ])
+  feature_length_norm = NormalizeInitializationByAggregation(0, epsilon=1.0E-5)([ features_length, weights_instance, level ])
   logits_length = Dense(num_outputs)(feature_length_norm)
-  logits_length_norm = WeightedInitNormalization(1, epsilon=1.0E-5)([ logits_length, weights_instance, level ])
+  logits_length_norm = NormalizeInitializationByAggregation(1, epsilon=1.0E-5)([ logits_length, weights_instance, level ])
 
-  features_abundance_norm = WeightedInitNormalization(0, epsilon=1.0E-5)([ features_abundance, weights_instance, level ])
+  features_abundance_norm = NormalizeInitializationByAggregation(0, epsilon=1.0E-5)([ features_abundance, weights_instance, level ])
   logits_abundance = Dense(num_outputs)(features_abundance_norm)
-  logits_abundance_norm = WeightedInitNormalization(1, epsilon=1.0E-5)([ logits_abundance, weights_instance, level ])
+  logits_abundance_norm = NormalizeInitializationByAggregation(1, epsilon=1.0E-5)([ logits_abundance, weights_instance, level ])
 
-  features_age_norm = WeightedInitNormalization(0, epsilon=1.0E-5)([ features_age, weights_instance, level ])
+  features_age_norm = NormalizeInitializationByAggregation(0, epsilon=1.0E-5)([ features_age, weights_instance, level ])
   logits_age = Dense(num_outputs)(features_age_norm)
-  logits_age_norm = WeightedInitNormalization(1, epsilon=1.0E-5)([ logits_age, weights_instance, level ])
+  logits_age_norm = NormalizeInitializationByAggregation(1, epsilon=1.0E-5)([ logits_age, weights_instance, level ])
 
   logits = Add()(
     [ logits_cdr3_norm, logits_length_norm, logits_abundance_norm, logits_age_norm ]
   )
   logits_aggregate = Aggregate()(logits)
-  logits_aggregate_norm = WeightedInitNormalization(2, epsilon=1.0E-5)([ logits_aggregate, weight, level ])
+  logits_aggregate_norm = NormalizeInitializationByAggregation(2, epsilon=1.0E-5)([ logits_aggregate, weight, level ])
 
   logits_flat = FullFlatten()(logits_aggregate_norm)
 
