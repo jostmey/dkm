@@ -10,9 +10,6 @@
 ##########################################################################################
 
 import csv
-from Bio import SeqIO
-from Bio.Seq import Seq
-from Bio.Alphabet import generic_dna
 import numpy as np
 import os
 import h5py
