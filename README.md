@@ -1,4 +1,4 @@
-# When Data Do Not Conform to Rows and Columns: A Case Study of T-cell Receptor Datasets
+# Modelling Data that Do Not Conform to Rows and Columns: A Case Study of T-cell Receptor Datasets
 ###### Publication submitted for peer-review
 ###### JARED L OSTMEYER, ASSISTANT PROFESSOR, UT SOUTHWESTERN DEPARTMENT OF POPULATION AND DATA SCIENCES
 
