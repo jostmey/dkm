@@ -1,7 +1,7 @@
 ##########################################################################################
 # Author: Jared L. Ostmeyer
 # Date Started: 2018-12-30
-# Purpose: Alignment layer for keras
+# Purpose: Compute sequence length
 ##########################################################################################
 
 from tensorflow.keras.layers import *
