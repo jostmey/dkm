@@ -2,7 +2,7 @@
 ##########################################################################################
 # Author: Jared L. Ostmeyer
 # Date Started: 2019-01-28
-# Purpose: Dump the model's preformance over a range of target cutoffs
+# Purpose: Dump the model's performance over a range of target cutoffs
 ##########################################################################################
 
 ##########################################################################################

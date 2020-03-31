@@ -201,7 +201,10 @@ with tf.Session() as session:
   #
   ps_train = session.run(probabilities_train)
   np.save(args.output+'_ps_train.npy', ps_train)
+  np.save(args.output+'_ys_train.npy', labels_train)
+  np.save(args.output+'_ws_train.npy', weights_train)
 
   ps_val = session.run(probabilities_val)
   np.save(args.output+'_ps_val.npy', ps_val)
-
+  np.save(args.output+'_ys_val.npy', labels_val)
+  np.save(args.output+'_ws_val.npy', weights_val)

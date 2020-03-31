@@ -16,9 +16,6 @@ from metrics import *
 import tensorflow as tf
 import numpy as np
 
-import os
-os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
-
 ##########################################################################################
 # Arguments
 ##########################################################################################

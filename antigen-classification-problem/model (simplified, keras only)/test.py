@@ -128,3 +128,5 @@ ps_test = model.predict(
   )
 )
 np.save(args.output+'_ps_test.npy', ps_test)
+np.save(args.output+'_ys_test.npy', ys_test)
+np.save(args.output+'_ws_test.npy', fs_test)

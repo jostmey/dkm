@@ -146,4 +146,6 @@ with tf.Session() as session:
   #
   ps_test = session.run(probabilities_test)
   np.save(args.output+'_ps_test.npy', ps_test)
+  np.save(args.output+'_ys_test.npy', labels_test)
+  np.save(args.output+'_ws_test.npy', weights_test)
 

@@ -2,7 +2,7 @@
 ##########################################################################################
 # Author: Jared L. Ostmeyer
 # Date Started: 2020-01-08
-# Purpose: Dump the model's preformance for a given confidence cutoff
+# Purpose: Calculate the model's performance for the given confidence cutoff
 ##########################################################################################
 
 ##########################################################################################
@@ -20,7 +20,6 @@ import numpy as np
 parser = argparse.ArgumentParser()
 parser.add_argument('--predictions_test', help='Path to the CSV file of predictions on the test data', type=str, required=True)
 parser.add_argument('--cutoff', help='Entropy cutoff', type=float, required=True)
-parser.add_argument('--index', help='Index of best fit', type=str, required=True)
 parser.add_argument('--output', help='Path to CSV file where cutoffs will be stored', type=str, required=True)
 args = parser.parse_args()
 
@@ -28,18 +27,9 @@ args = parser.parse_args()
 # Load data
 ##########################################################################################
 
-ys_test = []
-ws_test = []
-ps_test = []
-with open(args.predictions_test, 'r') as stream:
-  reader = csv.DictReader(stream, delimiter=',')
-  for row in reader:
-    ys_test.append(row['Label'])
-    ws_test.append(row['Weight'])
-    ps_test.append(row['Prediction_'+str(args.index)])
-ys_test = np.array(ys_test, np.float32)
-ws_test = np.array(ws_test, np.float32)
-ps_test = np.array(ps_test, np.float32)
+ps_test =  np.load(args.predictions_test+'_ps_test.npy')
+ys_test =  np.load(args.predictions_test+'_ys_test.npy')
+ws_test =  np.load(args.predictions_test+'_ws_test.npy')
 
 ws_test /= np.sum(ws_test)
 
@@ -57,9 +47,9 @@ with open(args.output, 'w') as stream:
     sep=',', file=stream
   )
 
-  hs_test = -ps_test*np.log(ps_test)-(1.0-ps_test)*np.log(1.0-ps_test)
-  cs_test = -ys_test*np.log(ps_test)-(1.0-ys_test)*np.log(1.0-ps_test)
-  ms_test = np.equal(np.round(ys_test), np.round(ps_test)).astype(ps_test.dtype)
+  hs_test = -np.sum(ps_test*np.log(ps_test), axis=1)
+  cs_test = -np.sum(ys_test*np.log(ps_test), axis=1)
+  ms_test = np.equal(np.argmax(ys_test, axis=1), np.argmax(ps_test, axis=1)).astype(ps_test.dtype)
 
   cs_test = cs_test[hs_test <= args.cutoff]
   ms_test = ms_test[hs_test <= args.cutoff]
