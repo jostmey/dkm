@@ -44,7 +44,7 @@ max_steps = 32
 
 # Load representation of the features
 #
-aminoacids_dict = load_aminoacid_embedding_dict('../lib/atchley_factors_normalized.csv')
+aminoacids_dict = load_aminoacid_embedding_dict('../../aminoacid-representation/atchley_factors_normalized.csv')
 
 # Load the samples
 #
@@ -141,7 +141,7 @@ with tf.Session() as session:
   # Save the weights of the alignment layer
   #
   ws, bs = model.get_layer('alignment').get_weights()
-  ns, ns2, ds = model.get_layer('weighted_init_normalization').get_weights()
+  ns, ns2, ds = model.get_layer('normalize_initialization_by_aggregation').get_weights()
   ms = ns/ds
   vs = ns2/ds-ms**2
 
@@ -159,10 +159,10 @@ with tf.Session() as session:
   # Save the weights of the length layer
   #
   ws, bs = model.get_layer('dense').get_weights()
-  ns, ns2, ds = model.get_layer('weighted_init_normalization_1').get_weights()
+  ns, ns2, ds = model.get_layer('normalize_initialization_by_aggregation_1').get_weights()
   ms_feature = ns/ds
   vs_feature = ns2/ds-ms_feature**2
-  ns, ns2, ds = model.get_layer('weighted_init_normalization_2').get_weights()
+  ns, ns2, ds = model.get_layer('normalize_initialization_by_aggregation_2').get_weights()
   ms = ns/ds
   vs = ns2/ds-ms**2
 
@@ -182,10 +182,10 @@ with tf.Session() as session:
   # Save the weights of the abundance layer
   #
   ws, bs = model.get_layer('dense_1').get_weights()
-  ns, ns2, ds = model.get_layer('weighted_init_normalization_3').get_weights()
+  ns, ns2, ds = model.get_layer('normalize_initialization_by_aggregation_3').get_weights()
   ms_feature = ns/ds
   vs_feature = ns2/ds-ms_feature**2
-  ns, ns2, ds = model.get_layer('weighted_init_normalization_4').get_weights()
+  ns, ns2, ds = model.get_layer('normalize_initialization_by_aggregation_4').get_weights()
   ms = ns/ds
   vs = ns2/ds-ms**2
 
@@ -205,10 +205,10 @@ with tf.Session() as session:
   # Save the weights of the age layer
   #
   ws, bs = model.get_layer('dense_2').get_weights()
-  ns, ns2, ds = model.get_layer('weighted_init_normalization_5').get_weights()
+  ns, ns2, ds = model.get_layer('normalize_initialization_by_aggregation_5').get_weights()
   ms_feature = ns/ds
   vs_feature = ns2/ds-ms_feature**2
-  ns, ns2, ds = model.get_layer('weighted_init_normalization_6').get_weights()
+  ns, ns2, ds = model.get_layer('normalize_initialization_by_aggregation_6').get_weights()
   ms = ns/ds
   vs = ns2/ds-ms**2
 
