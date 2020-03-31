@@ -67,8 +67,6 @@ with open(args.output, 'w') as stream:
     c_test/np.log(2.0),
     100.0*a_test,
     100.0*f_test,
-    n_test,
-    m_test,
     sep=',', file=stream
   )
 
