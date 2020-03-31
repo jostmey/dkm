@@ -64,7 +64,7 @@ To provide predictions relevant to clinical decision making, we use a simple app
 
 To begin, we run every sample through the statistical classifier to generate a prediction. Each prediction represents a probability distribution over outcomes, allowing us to calculate the entropy associated with each prediction. Let `H_j` represent the entropy from the prediction for sample j. We define `H_cutoff` as the cutoff for capturing samples. If `H_j ≤ H_cutoff` the sample is captured because the confidence is high. Otherwise, the sample is not captured by the cutoff because the confidence is low. We start with a value for `H_cutoff` large enough to ensure all the samples are initially captured and decrease `H_cutoff` in increments of 0.01 until we find that the accuracy over captured samples is ≥95% on the validation cohort. We then apply the cutoff to capture samples on the blindfolded test cohort and compute the accuracy.
 
-We provide a script to find `H_cutoff`. Suppose the best fitting run is 1 and the best fitting copy on that run is 14.
+We provide a script to find `H_cutoff`. Suppose the best fitting run is 8 and the best fitting copy on that run is 2.
 
 ```
 python3 cutoff_finder.py --predictions_val bin/model_1_ps_val.csv --index 14 --output cutoff_finder_results.csv
@@ -73,7 +73,7 @@ python3 cutoff_finder.py --predictions_val bin/model_1_ps_val.csv --index 14 --o
 Examine `cutoff_finder_results.csv` and find the value for `H_cutoff` associated with at least a 95% classification accuracy on the validation cohort. This is our cutoff. We are ready to capture samples from the test cohort. Suppose `H_cutoff` is 0.527.
 
 ```
-python3 cutoff_test.py --predictions_test bin/model_1_ps_test.csv --cutoff 0.527 --index 14 --output cutoff_test_results.csv
+python3 cutoff_test.py --predictions_test bin/model_8_ps_test.csv --cutoff 0.527 --index 2 --output cutoff_test_results.csv
 ```
 
 Examine `cutoff_test_results.csv` for the results. **We achieve a classification accuracy of 96% capturing 18% of samples.** Samples from the test cohort are captured almost evenly across the two categories, CMV+ and CMV-.
