@@ -53,7 +53,7 @@ The seven columns of numbers report:
 Once the best fitting copy has been identified, we can evaluate that copy of the model on the test cohort. Suppose the best fitting script run is 8 and the best fitting copy on that run is 2.
 
 ```
-python3 test.py --gpu 0 --database ../dataset/database.h5 --cohort_test Cohort_II --split_test samples --input bin/model_18 --index 2 --output bin/model_1
+python3 test.py --gpu 0 --database ../dataset/database.h5 --cohort_test Cohort_II --split_test samples --input bin/model_8 --index 2 --output bin/model_8
 ```
 
 The script reports the cross-entropy loss and the classification accuracy over the test cohort. We achieved a classification accuracy of 67.6%. Given that we balance over the two possible outcomes, the baseline accuracy achievable by chance is 1/2, or equivalent to tossing a coin. While these results are poor, we planned to use confidence cutoffs from the onset of this study, allowing us to achieve significantly better results with a caveat. See the next section.
