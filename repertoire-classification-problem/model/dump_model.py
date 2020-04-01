@@ -130,7 +130,7 @@ with tf.Session() as session:
 
   # Get weights for global init normalization
   #
-  ns, ns2, ds = model.get_layer('weighted_init_normalization_7').get_weights()
+  ns, ns2, ds = model.get_layer('normalize_initialization_by_aggregation_7').get_weights()
   ms_global = ns/ds
   vs_global = ns2/ds-ms_global**2
 
