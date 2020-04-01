@@ -12,7 +12,7 @@ under
 
 ## Rebuilding the Dataset
 
-The scripts to reconstruct the samples are provided in this folder. Because the last script randomly shuffles the samples, reconstructing the database will result in different splits of the data (i.e. the training, validation, and test cohorts will not necessarily be the same).
+The scripts to reconstruct the samples are provided in this folder. Because the last script randomly shuffles the samples, reconstructing the database will result in different splits of the data (i.e. the training, validation, and test cohorts will not necessarily be the same). Please note that your download may be blocked until you create an account with 10X Genomics.
 
 ```
 cd downloads
