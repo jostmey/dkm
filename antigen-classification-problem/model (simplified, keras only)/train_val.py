@@ -143,7 +143,7 @@ ps_train = model.predict(
 )
 np.save(args.output+'_ps_train.npy', ps_train)
 np.save(args.output+'_ys_train.npy', ys_train)
-np.save(args.output+'_ws_train.npy', ws_train)
+np.save(args.output+'_ws_train.npy', fs_train)
 
 ps_val = model.predict(
   (
@@ -153,4 +153,4 @@ ps_val = model.predict(
 )
 np.save(args.output+'_ps_val.npy', ps_val)
 np.save(args.output+'_ys_val.npy', ys_val)
-np.save(args.output+'_ws_val.npy', ws_val)
+np.save(args.output+'_ws_val.npy', fs_val)
