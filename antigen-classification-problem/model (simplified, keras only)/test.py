@@ -10,6 +10,7 @@
 ##########################################################################################
 
 import argparse
+import os
 from dataset import *
 from model import *
 from metrics import *
@@ -27,7 +28,14 @@ parser.add_argument('--tags', help='Tag name of the categories', type=str, nargs
 parser.add_argument('--input', help='Input basename', type=str, required=True)
 parser.add_argument('--output', help='Output basename', type=str, required=True)
 parser.add_argument('--permute', help='Randomly permute the relationship between features and labels', type=bool, default=False)
+parser.add_argument('--gpu', help='GPU ID', type=int, default=0)
 args = parser.parse_args()
+
+##########################################################################################
+# Environment
+##########################################################################################
+
+os.environ['CUDA_VISIBLE_DEVICES'] = str(args.gpu)
 
 ##########################################################################################
 # Load datasets
