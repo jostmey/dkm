@@ -175,6 +175,10 @@ initializer = tf.global_variables_initializer()
 num_epochs = 128
 cutoff = 131072
 
+# Suppress log messages
+#
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
+
 # Open session
 #
 with tf.Session() as session:
