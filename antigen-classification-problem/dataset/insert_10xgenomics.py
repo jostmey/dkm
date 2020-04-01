@@ -38,4 +38,4 @@ receptors_train, receptors_val, receptors_test = dp.split_dataset(receptors, [0.
 dp.insert_receptors(path_db, 'Receptor-PMHC-Complex/train', receptors_train)
 dp.insert_receptors(path_db, 'Receptor-PMHC-Complex/validate', receptors_val)
 dp.insert_receptors(path_db, 'Receptor-PMHC-Complex/test', receptors_test)
-
+dp.insert_receptors(path_db, 'Receptor-PMHC-Complex/all', receptors)
