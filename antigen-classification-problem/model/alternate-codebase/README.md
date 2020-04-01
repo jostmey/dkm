@@ -1,6 +1,6 @@
 ## Alternate Codebase
 
-This folder contains an alterante implementation of dynamic kernel matching for classify sequences. The codebase uses only Keras to setup and run the model, making it dramatically simplier than the original code. To use this code, simply move the python scripts into the parent directory.
+This folder contains an alternate implementation of dynamic kernel matching for classify sequences. The codebase uses only Keras to setup and run the model, making it dramatically simpler than the original code. To use this code, simply move the python scripts into the parent directory, overwriting the python scripts in the parent directory.
 
 ```
 mv model.py ../
