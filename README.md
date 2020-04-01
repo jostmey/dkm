@@ -27,6 +27,7 @@ The training cohort is used to fit a model, the validation cohort is used for mo
 * [TensorFlow == v1.14](https://www.tensorflow.org/)
 * [NumPy](http://www.numpy.org/)
 * [h5py](https://www.h5py.org/)
+* Linux Environment (Recommended)
 
 ## Recommended Tools
 
