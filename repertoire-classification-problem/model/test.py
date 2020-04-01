@@ -32,9 +32,12 @@ parser.add_argument('--gpu', help='GPU ID', type=int, default=0)
 
 args = parser.parse_args()
 
-# Settings
-#
+##########################################################################################
+# Environment
+##########################################################################################
+
 os.environ['CUDA_VISIBLE_DEVICES'] = str(args.gpu)
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 
 ##########################################################################################
 # Load datasets
@@ -168,10 +171,6 @@ initializer = tf.global_variables_initializer()
 # Settings
 #
 cutoff = 131072
-
-# Suppress log messages
-#
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 
 # Open session
 #
