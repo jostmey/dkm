@@ -46,4 +46,4 @@ Examine `cutoff_finder_results.csv` and find the value for `H_cutoff` associated
 python3 cutoff_test.py --predictions_test bin/model --cutoff 0.783 --output cutoff_test_results.csv
 ```
 
-Examine `cutoff_test_results.csv` for the results. **We achieve a classification accuracy of 97% capturing 44% of samples.
+Examine `cutoff_test_results.csv` for the results. **We achieve a classification accuracy of 97% capturing 44% of samples**.
