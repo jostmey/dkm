@@ -1,4 +1,4 @@
-## Repertoire Classification Problem
+## Repertoire Classification Model
 
 To demonstrate that *dynamic kernel matching* (DKM) can be used to classify sets of sequences, we modify a logistic regression model with DKM and fit it to the repertoire classification dataset [(link)](https://github.com/jostmey/dkm/tree/master/repertoire-classification-problem/dataset). To handle sets of sequences, we apply DKM twice, first to handle the sequences and then again to handle the set. We handle sequences using the code from the antigen classification problem, and we handle the sets by taking the maximum scoring sequence.
 
@@ -19,7 +19,7 @@ After running 128 steps of gradient optimization, we observe that the fit strong
 
 *We anticipate that by taking the best fit from a significantly larger number of copies, like 1024 copies, that better classification results can be obtained.*
 
-## Running the model(s)
+## Running the Model(s)
 
 Running `train_val.py` simultaneously fits 16 copies of the model to the training cohort. We run the script 8 times, resulting in a total of 128 copies of the model. We find the best fit to the training cohort out of all 128 copies. The initialization of the model can take 15 minutes or more before gradient optimization begins. Our setup assumes an array of 8 GPUs with the same memory as a P100 16GB GPU.
 
