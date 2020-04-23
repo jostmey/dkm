@@ -48,7 +48,7 @@ class NormalizeInitialization(Layer):  # Scale at initialization to zero mean an
     init = K.sign(counter-K.ones_like(counter))  # Indicator is 1 if model is being initalized, 0 otherwise
 
     mean = K.update(self.mean, init*self.mean+(1.0-init)*mean)  # Store the mean when the indicator is 1
-    variance = K.update(self.variance, init*self.variance+(1.0-init)*variance)  # Store the mean when the indicator is 1
+    variance = K.update(self.variance, init*self.variance+(1.0-init)*variance)  # Store the variance when the indicator is 1
 
     mean_expand = tf.expand_dims(mean, axis=0)
     variance_expand = tf.expand_dims(variance, axis=0)
