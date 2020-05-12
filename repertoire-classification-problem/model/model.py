@@ -14,7 +14,7 @@ from NormalizeInitialization import *
 from Aggregate import *
 from FullFlatten import *
 
-def generate_model(input_shape_cdr3, num_outputs):
+def generate_model(input_shape_cdr3, num_outputs, filter_size):
 
   features_cdr3 = Input(shape=input_shape_cdr3)
   features_quantity = Input(shape=[])
@@ -28,7 +28,7 @@ def generate_model(input_shape_cdr3, num_outputs):
   features_age = BatchExpand()([ feature_age, features_abundance ])
   weights_instance = Multiply()([weight, features_quantity])
 
-  logits_cdr3 = Alignment(num_outputs, input_shape_cdr3[0], penalties_feature=0.0, penalties_filter=-1.0E16, length_normalize=False)(features_mask)
+  logits_cdr3 = Alignment(num_outputs, filter_size, penalties_feature=0.0, penalties_filter=-1.0E16, length_normalize=False)(features_mask)
   logits_cdr3_norm = NormalizeInitializationByAggregation(1, epsilon=1.0E-5)([ logits_cdr3, weights_instance, level ])
 
   feature_length_norm = NormalizeInitializationByAggregation(0, epsilon=1.0E-5)([ features_length, weights_instance, level ])
