@@ -69,7 +69,7 @@ xs_val, ys_val, ws_val = load_dataset(
 # Settings
 #
 learning_rate = 0.001
-num_steps = 8
+filter_size = 8
 num_levels = 3
 num_fits = 16
 
@@ -96,7 +96,7 @@ weight_block_ = tf.reshape(weight_block, [1])
 
 # Define the model
 #
-model = generate_model([num_steps]+list(xs_train[first]['cdr3'].shape[2:]), num_fits)
+model = generate_model(list(xs_train[first]['cdr3'].shape[1:]), num_fits, filter_size)
 
 # Run model
 #
