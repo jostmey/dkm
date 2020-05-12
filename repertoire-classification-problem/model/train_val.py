@@ -96,7 +96,7 @@ weight_block_ = tf.reshape(weight_block, [1])
 
 # Define the model
 #
-model = generate_model(list(xs_train[first]['cdr3'].shape[1:]), num_fits, filter_size)
+model = generate_model(xs_train[first]['cdr3'].shape[1:], num_fits, filter_size)
 
 # Run model
 #
