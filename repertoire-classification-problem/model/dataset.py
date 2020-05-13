@@ -58,7 +58,6 @@ def load_dataset(path_db, cohort, split, aminoacids_dict, max_steps=32, path_shu
       # Settings
       #
       num_samples = receptors.size
-      max_steps = max_steps
       num_features_cdr3 = len(list(aminoacids_dict.values())[0])
 
       # Format data
