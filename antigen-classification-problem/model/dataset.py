@@ -135,7 +135,6 @@ def load_dataset(path_db, split_name, tags, aminoacids_dict, tra_vgenes_dict, tr
   # Settings
   #
   num_samples = receptors.size
-  max_steps = max_steps
   num_features_cdr3 = len(list(aminoacids_dict.values())[0])
   num_features_tra_vgene = len(list(tra_vgenes_dict.values())[0])
   num_features_tra_jgene = len(list(tra_jgenes_dict.values())[0])
