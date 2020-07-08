@@ -85,7 +85,7 @@ weight_block_ = tf.reshape(weight_block, [1])
 
 # Define the model
 #
-model = generate_model([num_steps]+list(xs[first]['cdr3'].shape[2:]), num_fits)
+model = generate_model(list(xs[first]['cdr3'].shape[1:]), num_fits, num_steps)
 
 # Run model
 #
