@@ -6,7 +6,6 @@
 
 from tensorflow.keras.layers import *
 import tensorflow.keras.backend as K
-from alignment_score import *
 
 class Abundance(Layer):
   def __init__(self, **kwargs):
