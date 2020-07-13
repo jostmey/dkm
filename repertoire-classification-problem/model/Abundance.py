@@ -13,6 +13,6 @@ class Abundance(Layer):
   def compute_mask(self, inputs, mask=None):
     return mask
   def call(self, inputs, mask=None):
-    inputs_expand = tf.expand_dims(inputs, axis=1)
+    inputs_expand = K.expand_dims(inputs, axis=1)
     outputs = K.log(inputs_expand)
     return outputs
