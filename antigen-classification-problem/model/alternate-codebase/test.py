@@ -13,7 +13,6 @@ import argparse
 import os
 from dataset import *
 from model import *
-from metrics import *
 import tensorflow as tf
 import numpy as np
 
