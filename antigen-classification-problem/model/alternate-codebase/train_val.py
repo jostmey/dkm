@@ -14,6 +14,7 @@ import os
 from dataset import *
 from model import *
 import tensorflow as tf
+from tensorflow.keras import *
 import numpy as np
 
 ##########################################################################################
@@ -110,6 +111,7 @@ def balanced_sampling(xs, ys, ws, batch_size):
       ys[js]
     )
 
+early_stopping = callbacks.EarlyStopping(patience=128, restore_best_weights=True)
 model.fit_generator(
   generator=balanced_sampling(
     (
@@ -126,7 +128,8 @@ model.fit_generator(
     ),
     ys_val, fs_val, batch_size
   ),
-  validation_steps=int(np.ceil(num_val/batch_size))
+  validation_steps=int(np.ceil(num_val/batch_size)),
+  callbacks=[ early_stopping ]
 )
 
 ##########################################################################################
