@@ -1,7 +1,7 @@
 ##########################################################################################
 # Author: Jared L. Ostmeyer
 # Date Started: 2018-12-31 (the date when I had the idea)
-# Purpose: Test model classifier for T-cell receptor sequences
+# Purpose: Align features to weights
 ##########################################################################################
 
 import tensorflow as tf
