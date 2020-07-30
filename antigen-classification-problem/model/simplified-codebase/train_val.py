@@ -71,10 +71,12 @@ ys_val, fs_val = load_dataset(
 # Model
 ##########################################################################################
 
+num_steps = max_steps
+
 model = generate_model(
   xs_tra_cdr3_train.shape[1:], xs_tra_vgene_train.shape[1:], xs_tra_jgene_train.shape[1:],
   xs_trb_cdr3_train.shape[1:], xs_trb_vgene_train.shape[1:], xs_trb_jgene_train.shape[1:],
-  ys_train.shape[1]
+  ys_train.shape[1], num_steps
 )
 
 ##########################################################################################
