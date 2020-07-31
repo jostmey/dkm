@@ -67,6 +67,7 @@ labels_val, weights_val = \
 
 # Settings
 #
+num_steps = max_steps
 learning_rate = 0.001
 target_accuracy = 0.95
 
@@ -75,7 +76,7 @@ target_accuracy = 0.95
 model = generate_model(
   features_tra_cdr3_train.shape[1:], features_tra_vgene_train.shape[1:], features_tra_jgene_train.shape[1:],
   features_trb_cdr3_train.shape[1:], features_trb_vgene_train.shape[1:], features_trb_jgene_train.shape[1:],
-  labels_train.shape[1]
+  labels_train.shape[1], num_steps
 )
 
 # Run model on training data

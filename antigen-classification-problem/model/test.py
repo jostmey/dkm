@@ -65,12 +65,16 @@ labels_test, weights_test = \
 # Model
 ##########################################################################################
 
+# Settings
+#
+num_steps = max_steps
+
 # Define the model
 #
 model = generate_model(
   features_tra_cdr3_test.shape[1:], features_tra_vgene_test.shape[1:], features_tra_jgene_test.shape[1:],
   features_trb_cdr3_test.shape[1:], features_trb_vgene_test.shape[1:], features_trb_jgene_test.shape[1:],
-  labels_test.shape[1]
+  labels_test.shape[1], num_steps
 )
 
 # Run model on test data
