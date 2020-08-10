@@ -13,7 +13,7 @@ import argparse
 import os
 from dataset import *
 from model import *
-import tensorflow as tf
+from tensorflow.keras import *
 import numpy as np
 
 ##########################################################################################
