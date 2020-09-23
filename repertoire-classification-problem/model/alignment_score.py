@@ -1,7 +1,7 @@
 ##########################################################################################
 # Author: Jared L. Ostmeyer
 # Date Started: 2018-12-31 (the date when I had the idea)
-# Purpose: Align features to weights
+# Purpose: Align features to weights using Needleman–Wunsch algorithm
 ##########################################################################################
 
 import tensorflow as tf
