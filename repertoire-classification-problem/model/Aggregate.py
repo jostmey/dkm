@@ -1,7 +1,7 @@
 ##########################################################################################
 # Author: Jared L. Ostmeyer
 # Date Started: 2019-08-14
-# Purpose: Flatten tensor for single binary output
+# Purpose: Aggregate instances
 ##########################################################################################
 
 from tensorflow.keras.layers import *
