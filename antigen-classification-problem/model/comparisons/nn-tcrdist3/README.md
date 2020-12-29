@@ -1,4 +1,4 @@
-## Comparison of DKM to a Nearest Neighbor Model using TCR-Dist3 as the Distance Metric
+## Comparison of DKM to a Nearest Neighbors Model using TCR-Dist3 as the Distance Metric
 
 This folder contains scripts for running a nearest neighbor model on the antigen classification problem using TCR-Dist as the distance metric. The code for TCR-Dist comes from https://github.com/kmayerb/tcrdist3. Once the scripts have been run, the results can be compared to DKM.
 
@@ -28,5 +28,5 @@ python3 dump.py \
 docker run -it --rm -v $(pwd):/project quay.io/kmayerb/tcrdist3:0.1.6 sh -c "cd project ; python3 train_val_test.py --input db.csv --output bin/model"
 ```
 
-On the test cohort, we achieve a classification accuracy of 67.87%. Because we are using a nearest neighbor model, our prediction for each test sample is the label of the nearest neighbor (k=1). When multiple neighbors are tied for the nearest neighbor, we use the label from neighbor with the highest relative frequency to break the tie.
+On the test cohort, we achieve a classification accuracy of 67.87%. Because we are using a nearest neighbors model, our prediction for each test sample is the label of the nearest neighbor (k=1). When multiple neighbors are tied for the nearest neighbor, we use the label from neighbor with the highest relative frequency to break the tie.
 
