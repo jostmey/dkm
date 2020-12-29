@@ -33,6 +33,10 @@ args = parser.parse_args()
 # Load datasets
 ##########################################################################################
 
+# Settings
+#
+num_tags = len(args.tags)
+
 # Load the samples
 #
 xs_train, ys_train, fs_train, xs_test, ys_test, fs_test = \
@@ -44,6 +48,14 @@ xs_train, ys_train, fs_train, xs_test, ys_test, fs_test = \
 ##########################################################################################
 # Model
 ##########################################################################################
+
+# Converts soft labels to hard labels
+#
+def label_float2int(ys, num_classes):
+  ys_index = np.argmax(ys, axis=1)
+  ys_onehot = np.squeeze(np.eye(num_classes)[ys_index.reshape(-1)])
+  ys_hard = ys_onehot.astype(np.int64)
+  return ys_hard
 
 # Instantiate model with feature selection (no sample weighting)
 #
@@ -61,11 +73,11 @@ predictor = ensemble.RandomForestClassifier(n_estimators=200)
 
 # Fit model (no sample weighting)
 #
-#predictor.fit(xs_train, ys_train.astype(np.int64))
+#predictor.fit(xs_train, label_float2int(ys_train, num_tags))
 
 # Fit model
 #
-predictor.fit(xs_train, ys_train.astype(np.int64), sample_weight=fs_train)
+predictor.fit(xs_train, label_float2int(ys_train, num_tags), sample_weight=fs_train)
 
 # Generate predictions
 #
@@ -75,13 +87,13 @@ ps_test = predictor.predict(xs_test)
 # Metrics
 #
 a_train = metrics.accuracy_score(
-  ys_train.astype(np.int64),
-  ps_train.astype(np.int64),
+  label_float2int(ys_train, num_tags),
+  ps_train,
   sample_weight=fs_train
 )
 a_test = metrics.accuracy_score(
-  ys_test.astype(np.int64),
-  ps_test.astype(np.int64),
+  label_float2int(ys_test, num_tags),
+  ps_test,
   sample_weight=fs_test
 )
 
