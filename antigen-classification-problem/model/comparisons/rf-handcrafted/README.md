@@ -5,7 +5,7 @@ This folder contains a script for using a random forest model on the antigen cla
 The results can then be compared to DKM. To use this code, simply move the python scripts into the parent directory, overwriting the DKM model.
 
 ```
-mv model.py ../../
+mv dataset.py ../../
 mv train_test.py ../../
 ```
 
