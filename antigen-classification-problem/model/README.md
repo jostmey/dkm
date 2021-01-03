@@ -1,6 +1,6 @@
 ## Antigen Classification Model
 
-To demonstrate *dynamic kernel matching* (DKM) can be used to classify sequences, we modify a multinomial regression model with DKM and fit it to the antigen classification dataset [(link)](https://github.com/jostmey/dkm/tree/master/antigen-classification-problem/dataset). Applying DKM on sequences requires that we implement a sequence alignment to match features to weights. See `alignment_score.py` for our implementation of the [Needleman-Wunsch algorithm](https://en.wikipedia.org/wiki/Needleman–Wunsch_algorithm) in TensorFlow. A Keras wrapper is provided in `Alignment.py`.
+To demonstrate *dynamic kernel matching* (DKM) can be used to classify sequences, we modify a multinomial regression model with DKM and fit it to the antigen classification dataset [(link)](https://github.com/jostmey/dkm/tree/master/antigen-classification-problem/dataset). Applying DKM on sequences requires that we implement a sequence alignment to match features to weights. See `alignment_score.py` for our implementation of the [Needleman-Wunsch algorithm](https://en.wikipedia.org/wiki/Needleman–Wunsch_algorithm) in TensorFlow. A Keras wrapper is provided in `Alignment.py` and a pure Keras implementation can be found in `simplified-codebase/`.
 
 ![alt text](../../artwork/antigen-classification-model.png "Antigen classification model")
 
