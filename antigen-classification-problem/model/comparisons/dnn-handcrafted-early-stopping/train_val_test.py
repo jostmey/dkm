@@ -140,7 +140,7 @@ np.save(args.output+'_ps_val.npy', ps_val)
 np.save(args.output+'_ys_val.npy', ys_val)
 np.save(args.output+'_ws_val.npy', fs_val)
 
-ps_test = model.predict(xs_val)
+ps_test = model.predict(xs_test)
 np.save(args.output+'_ps_test.npy', ps_test)
 np.save(args.output+'_ys_test.npy', ys_test)
 np.save(args.output+'_ws_test.npy', fs_test)
